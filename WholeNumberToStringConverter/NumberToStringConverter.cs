@@ -24,13 +24,38 @@ namespace WholeNumberToStringConverter
         public static string ConvertNumberToString(string input)
         {
             string result = string.Empty;
+            bool isCompleted = false;
             if (IsInputAValidOne(input))
             {
+                int index = 0;
                 int numberLength = input.Length;
-                if (numberLength == 1) result = ConvertSingleDigitToString(input);
-                else if (numberLength == 2) result = ConvertDoubleDigitToString(input);
-                else throw new NotImplementedException(String.Format("{0} this number is beyond the range", input));
+                String head = "";
+                switch (numberLength)
+                {
+                    case 1:
+                        result = ConvertSingleDigitToString(input);
+                        isCompleted = true;
+                        break;
+                    case 2:
+                        result = ConvertDoubleDigitToString(input);
+                        isCompleted = true;
+                        break;
+                    case 3:
+                        index = (numberLength % 3) + 1;
+                        head = "Hundred";
+                        break;
+                }
+                if (!isCompleted)
+                {
+                    try
+                    {
+                        result = ConvertNumberToString(input.Substring(0, index))+" " + head + " " +ConvertNumberToString(input.Substring(index));
+                    }
+                    catch { }
 
+                    //check for trailing zeros    
+                    //if (beginsZero) word = " and " + word.Trim();    
+                }
             }
             return result.Trim();
         }

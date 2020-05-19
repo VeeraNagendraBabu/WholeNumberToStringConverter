@@ -54,8 +54,8 @@ namespace WholeNumberToStringConverterTester
         [Test]
         public void TestRandomNumbers()
         {
-            string expectedResult = "Twenty Two";
-            var result = NumberToStringConverter.ConvertNumberToString("22");
+            string expectedResult = "Thirty Two";
+            var result = NumberToStringConverter.ConvertNumberToString("32");
             Assert.AreEqual(expectedResult, result);
         }
         [Test]
@@ -64,6 +64,18 @@ namespace WholeNumberToStringConverterTester
             int i = 0;
             string[] teens = { "10", "11", "12", "13", "14", "15", "19" };
             string[] expectedResult = { "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Nineteen" };
+            foreach (string n in teens)
+            {
+                string s = NumberToStringConverter.ConvertNumberToString(n);
+                Assert.AreEqual(expectedResult[i++], s);
+            }
+        }
+        [Test]
+        public void TestHundereds()
+        {
+            int i = 0;
+            string[] teens = { "103", "111", "222", "233", "334", "999" };
+            string[] expectedResult = { "One Hundred Three", "One Hundred Eleven", "Two Hundred Twenty Two", "Two Hundred Thirty Three", "Three Hundred Thirty Four", "Nine Hundred Ninty Nine" };
             foreach (string n in teens)
             {
                 string s = NumberToStringConverter.ConvertNumberToString(n);
