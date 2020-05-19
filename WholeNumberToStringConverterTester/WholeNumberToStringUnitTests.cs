@@ -106,5 +106,30 @@ namespace WholeNumberToStringConverterTester
                 Assert.AreEqual(expectedResult[i++], s);
             }
         }
+        [Test]
+        public void TestSolutionWithRandomNumbers()
+        {
+            int i = 0;
+            int[] numbers = {  10, 11, 12, 13, 17, 19, 21, 32, 54, 76, 98,
+                                100, 101, 211, 825, 999, 1100, 5101, 23211, 785825,
+                                1000000, 2010203, 20102030, 34567890, 999999999 };
+            string[] stringNumbers = numbers.Select(i => i.ToString()).ToArray();
+            string[] expectedResult = { "Ten", "Eleven", "Twelve", "Thirteen", "Seventeen", "Nineteen",
+                                        "Twenty One", "Thirty Two", "Fifty Four", "Seventy Six", "Ninty Eight",
+                                        "One Hundred", "One Hundred One", "Two Hundred Eleven", "Eight Hundred Twenty Five",
+                                        "Nine Hundred Ninty Nine", "One Thousand One Hundred", "Five Thousand One Hundred One",
+                                        "Twenty Three Thousand Two Hundred Eleven",
+                                        "Seven Hundred Eighty Five Thousand Eight Hundred Twenty Five",
+                                        "One Million", "Two Million Ten Thousand Two Hundred Three",
+                                        "Twenty Million One Hundred Two Thousand Thirty",
+                                        "Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninty",
+                                        "Nine Hundred Ninty Nine Million Nine Hundred Ninty Nine Thousand Nine Hundred Ninty Nine"
+                                        };
+            foreach (string n in stringNumbers)
+            {
+                string s = NumberToStringConverter.ConvertNumberToReadableString(n);
+                Assert.AreEqual(expectedResult[i++], s);
+            }
+        }
     }
 }
