@@ -18,9 +18,8 @@ namespace WholeNumberToStringConverter
             }
             else
             {
-                throw new IndexOutOfRangeException(String.Format("{0} not a whole Number", input));
+                throw new ArgumentException(String.Format("{0} not a whole Number", input));
             }
-
         }
         public static string ConvertNumberToString(string input)
         {
