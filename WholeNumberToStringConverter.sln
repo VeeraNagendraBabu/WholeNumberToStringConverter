@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WholeNumberToStringConverter", "WholeNumberToStringConverter\WholeNumberToStringConverter.csproj", "{90C417E7-2487-46CB-9426-E32072570E0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WholeNumberToStringConverter", "WholeNumberToStringConverter\WholeNumberToStringConverter.csproj", "{90C417E7-2487-46CB-9426-E32072570E0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WholeNumberToStringConverterTester", "WholeNumberToStringConverterTester\WholeNumberToStringConverterTester.csproj", "{1867D17C-7149-4DBE-987C-5911B5F0D94F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WholeNumberToStringConverterTester", "WholeNumberToStringConverterTester\WholeNumberToStringConverterTester.csproj", "{1867D17C-7149-4DBE-987C-5911B5F0D94F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WholeNumberToStringRunner", "WholeNumberToStringRunner\WholeNumberToStringRunner.csproj", "{70F8BFE4-20A6-4CA5-9788-313B4F754ADD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{1867D17C-7149-4DBE-987C-5911B5F0D94F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1867D17C-7149-4DBE-987C-5911B5F0D94F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1867D17C-7149-4DBE-987C-5911B5F0D94F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70F8BFE4-20A6-4CA5-9788-313B4F754ADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F8BFE4-20A6-4CA5-9788-313B4F754ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70F8BFE4-20A6-4CA5-9788-313B4F754ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70F8BFE4-20A6-4CA5-9788-313B4F754ADD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
