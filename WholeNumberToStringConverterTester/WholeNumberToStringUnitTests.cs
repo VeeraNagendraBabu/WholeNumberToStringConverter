@@ -40,7 +40,7 @@ namespace WholeNumberToStringConverterTester
             Assert.AreEqual(expectedResult, result);
         }
         [Test]
-        public void TestDigits()
+        public void TestSingleDigitNumbers()
         {
             int i = 0;
             string[] digits = Enumerable.Range(0, 9).Select(o => o.ToString()).ToArray();
@@ -52,11 +52,23 @@ namespace WholeNumberToStringConverterTester
             }
         }
         [Test]
-        public void TestDoubleDigitis()
+        public void TestRandomNumbers()
         {
             string expectedResult = "Twenty Two";
             var result = NumberToStringConverter.ConvertNumberToString("22");
             Assert.AreEqual(expectedResult, result);
+        }
+        [Test]
+        public void TestDoubleDigitNumber()
+        {
+            int i = 0;
+            string[] teens = { "10", "11", "12", "13", "14", "15", "19" };
+            string[] expectedResult = { "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Nineteen" };
+            foreach (string n in teens)
+            {
+                string s = NumberToStringConverter.ConvertNumberToString(n);
+                Assert.AreEqual(expectedResult[i++], s);
+            }
         }
     }
 }
