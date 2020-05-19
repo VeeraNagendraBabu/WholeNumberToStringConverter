@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/WholeNumberToStringConverter/v16
+/WholeNumberToStringConverter/bin/Debug/netstandard2.0
+/WholeNumberToStringConverter/obj
+/WholeNumberToStringConverterTester/bin/Debug/netcoreapp3.1
+/WholeNumberToStringConverterTester/obj
