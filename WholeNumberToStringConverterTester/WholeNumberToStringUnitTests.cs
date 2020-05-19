@@ -36,7 +36,7 @@ namespace WholeNumberToStringConverterTester
         public void CheckIfTheSpellerRespondsRightForLowestWholeNumber()
         {
             string expectedResult = "Zero";
-            var result = NumberToStringConverter.ConvertNumberToString("0");
+            var result = NumberToStringConverter.ConvertNumberToReadableString("0");
             Assert.AreEqual(expectedResult, result);
         }
         [Test]
@@ -47,7 +47,7 @@ namespace WholeNumberToStringConverterTester
             string[] expectedResult = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
             foreach (string d in digits)
             {
-                string s = NumberToStringConverter.ConvertNumberToString(d);
+                string s = NumberToStringConverter.ConvertNumberToReadableString(d);
                 Assert.AreEqual(expectedResult[i++], s);
             }
         }
@@ -55,7 +55,7 @@ namespace WholeNumberToStringConverterTester
         public void TestRandomNumbers()
         {
             string expectedResult = "Thirty Two";
-            var result = NumberToStringConverter.ConvertNumberToString("32");
+            var result = NumberToStringConverter.ConvertNumberToReadableString("32");
             Assert.AreEqual(expectedResult, result);
         }
         [Test]
@@ -66,7 +66,7 @@ namespace WholeNumberToStringConverterTester
             string[] expectedResult = { "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Nineteen" };
             foreach (string n in teens)
             {
-                string s = NumberToStringConverter.ConvertNumberToString(n);
+                string s = NumberToStringConverter.ConvertNumberToReadableString(n);
                 Assert.AreEqual(expectedResult[i++], s);
             }
         }
@@ -78,7 +78,7 @@ namespace WholeNumberToStringConverterTester
             string[] expectedResult = { "One Hundred Three", "One Hundred Eleven", "Two Hundred Twenty Two", "Two Hundred Thirty Three", "Three Hundred Thirty Four", "Nine Hundred Ninty Nine" };
             foreach (string n in teens)
             {
-                string s = NumberToStringConverter.ConvertNumberToString(n);
+                string s = NumberToStringConverter.ConvertNumberToReadableString(n);
                 Assert.AreEqual(expectedResult[i++], s);
             }
         }
@@ -91,7 +91,7 @@ namespace WholeNumberToStringConverterTester
             string[] expectedResult = { "One Thousand Twelve" };
             foreach (string n in teens)
             {
-                string s = NumberToStringConverter.ConvertNumberToString(n);
+                string s = NumberToStringConverter.ConvertNumberToReadableString(n);
                 Assert.AreEqual(expectedResult[i++], s);
             }
         }

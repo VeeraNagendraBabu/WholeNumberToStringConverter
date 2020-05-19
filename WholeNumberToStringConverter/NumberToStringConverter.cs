@@ -6,6 +6,18 @@ namespace WholeNumberToStringConverter
 {
     public static class NumberToStringConverter
     {
+        public static string ConvertNumberToReadableString(string input)
+        {
+            if (IsInputAValidOne(input))
+            {
+                if (input.Length == 1 && input == "0")
+                {
+                    return "Zero";
+                }
+                return ConvertNumberToString(input);
+            }
+            return string.Empty;
+        }
         public static bool IsInputAValidOne(string input)
         {
             long inputD;
@@ -27,10 +39,6 @@ namespace WholeNumberToStringConverter
             bool isCompleted = false;
             if (IsInputAValidOne(input))
             {
-                if (input == "0")
-                {
-                    return "Zero";
-                }
                 int index = 0;
                 int numberLength = input.Length;
                 String head = "";
@@ -55,15 +63,23 @@ namespace WholeNumberToStringConverter
                 }
                 if (!isCompleted)
                 {
-                    try
+                    if (input.Substring(0, index) != "0" && input.Substring(index) != "0")
                     {
-                        result = ConvertNumberToString(input.Substring(0, index)) + head + ConvertNumberToString(input.Substring(index));
+                        try
+                        {
+                            result = ConvertNumberToString(input.Substring(0, index)) + head + ConvertNumberToString(input.Substring(index));
+                        }
+                        catch { }
                     }
-                    catch { }   
+                    else
+                    {
+                        result = ConvertNumberToString(input.Substring(0, index)) + ConvertNumberToString(input.Substring(index));
+                    }
                 }
             }
             return result.Trim();
         }
+
         private static String ConvertSingleDigitToString(String Number)
         {
             int _Number = Convert.ToInt32(Number);
