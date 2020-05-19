@@ -51,5 +51,12 @@ namespace WholeNumberToStringConverterTester
                 Assert.AreEqual(expectedResult[i++], s);
             }
         }
+        [Test]
+        public void TestDoubleDigitis()
+        {
+            string expectedResult = "Twenty Two";
+            var result = NumberToStringConverter.ConvertNumberToString("22");
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }

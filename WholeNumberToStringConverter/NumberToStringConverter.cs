@@ -14,7 +14,7 @@ namespace WholeNumberToStringConverter
                 if (inputD >= 0 && inputD < float.MaxValue)
                     return true;
                 else
-                    return false;
+                    throw new ArgumentException(String.Format("{0} not a whole Number", input));
             }
             else
             {
@@ -24,7 +24,14 @@ namespace WholeNumberToStringConverter
         public static string ConvertNumberToString(string input)
         {
             string result = string.Empty;
-            result = ConvertSingleDigitToString(input);
+            if (IsInputAValidOne(input))
+            {
+                int numberLength = input.Length;
+                if (numberLength == 1) result = ConvertSingleDigitToString(input);
+                else if (numberLength == 2) result = ConvertDoubleDigitToString(input);
+                else throw new NotImplementedException(String.Format("{0} this number is beyond the range", input));
+
+            }
             return result.Trim();
         }
         private static String ConvertSingleDigitToString(String Number)
@@ -47,6 +54,40 @@ namespace WholeNumberToStringConverter
                         throw new IndexOutOfRangeException(String.Format("{0} not a digit", _Number));
                 }
             }
+        }
+        private static String ConvertDoubleDigitToString(String Number)
+        {
+
+            int _Number = Convert.ToInt32(Number);
+            String name = null;
+            switch (_Number)
+            {
+                case 10: return "Ten";
+                case 11: return "Eleven";
+                case 12: return "Twelve";
+                case 13: return "Thirteen";
+                case 14: return "Fourteen";
+                case 15: return "Fifteen";
+                case 16: return "Sixteen";
+                case 17: return "Seventeen";
+                case 18: return "Eighteen";
+                case 19: return "Nineteen";
+                case 20: return "Twenty";
+                case 30: return "Thirty";
+                case 40: return "Fourty";
+                case 50: return "Fifty";
+                case 60: return "Sixty";
+                case 70: return "Seventy";
+                case 80: return "Eighty";
+                case 90: return "Ninty";
+                default:
+                    if (_Number > 0)
+                    {
+                        name = ConvertDoubleDigitToString(Number.Substring(0, 1) + "0") + " " + ConvertSingleDigitToString(Number.Substring(1));
+                    }
+                    break;
+            }
+            return name;
         }
 
     }
