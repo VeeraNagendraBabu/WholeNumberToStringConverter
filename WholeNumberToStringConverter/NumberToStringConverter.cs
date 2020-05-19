@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace WholeNumberToStringConverter
 {
@@ -56,7 +54,7 @@ namespace WholeNumberToStringConverter
                         index = (numberLength % 3) + 1;
                         head = " Hundred ";
                         break;
-                    case 4://thousands' range   
+                    case 4:
                         index = (numberLength % 4) + 1;
                         head = " Thousand ";
                         break;
@@ -138,3 +136,4 @@ namespace WholeNumberToStringConverter
 
     }
 }
+    
