@@ -82,5 +82,18 @@ namespace WholeNumberToStringConverterTester
                 Assert.AreEqual(expectedResult[i++], s);
             }
         }
+
+        [Test]
+        public void TestThousands()
+        {
+            int i = 0;
+            string[] teens = { "1012" };
+            string[] expectedResult = { "One Thousand Twelve" };
+            foreach (string n in teens)
+            {
+                string s = NumberToStringConverter.ConvertNumberToString(n);
+                Assert.AreEqual(expectedResult[i++], s);
+            }
+        }
     }
 }

@@ -27,6 +27,10 @@ namespace WholeNumberToStringConverter
             bool isCompleted = false;
             if (IsInputAValidOne(input))
             {
+                if (input == "0")
+                {
+                    return "Zero";
+                }
                 int index = 0;
                 int numberLength = input.Length;
                 String head = "";
@@ -42,19 +46,20 @@ namespace WholeNumberToStringConverter
                         break;
                     case 3:
                         index = (numberLength % 3) + 1;
-                        head = "Hundred";
+                        head = " Hundred ";
+                        break;
+                    case 4://thousands' range   
+                        index = (numberLength % 4) + 1;
+                        head = " Thousand ";
                         break;
                 }
                 if (!isCompleted)
                 {
                     try
                     {
-                        result = ConvertNumberToString(input.Substring(0, index))+" " + head + " " +ConvertNumberToString(input.Substring(index));
+                        result = ConvertNumberToString(input.Substring(0, index)) + head + ConvertNumberToString(input.Substring(index));
                     }
-                    catch { }
-
-                    //check for trailing zeros    
-                    //if (beginsZero) word = " and " + word.Trim();    
+                    catch { }   
                 }
             }
             return result.Trim();
@@ -65,7 +70,7 @@ namespace WholeNumberToStringConverter
             {
                 switch (_Number)
                 {
-                    case 0: return "Zero";
+                    case 0: return "";
                     case 1: return "One";
                     case 2: return "Two";
                     case 3: return "Three";
