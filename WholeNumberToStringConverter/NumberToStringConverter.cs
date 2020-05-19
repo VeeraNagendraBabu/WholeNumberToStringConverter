@@ -35,43 +35,73 @@ namespace WholeNumberToStringConverter
         {
             string result = string.Empty;
             bool isCompleted = false;
+            long inputd = Int64.Parse(input);
             if (IsInputAValidOne(input))
             {
-                int index = 0;
-                int numberLength = input.Length;
-                String head = "";
-                switch (numberLength)
+                if (inputd > 0)
                 {
-                    case 1:
-                        result = ConvertSingleDigitToString(input);
-                        isCompleted = true;
-                        break;
-                    case 2:
-                        result = ConvertDoubleDigitToString(input);
-                        isCompleted = true;
-                        break;
-                    case 3:
-                        index = (numberLength % 3) + 1;
-                        head = " Hundred ";
-                        break;
-                    case 4:
-                        index = (numberLength % 4) + 1;
-                        head = " Thousand ";
-                        break;
-                }
-                if (!isCompleted)
-                {
-                    if (input.Substring(0, index) != "0" && input.Substring(index) != "0")
+                    int index = 0;
+                    int numberLength = input.Length;
+                    String head = "";
+                    switch (numberLength)
                     {
-                        try
-                        {
-                            result = ConvertNumberToString(input.Substring(0, index)) + head + ConvertNumberToString(input.Substring(index));
-                        }
-                        catch { }
+                        case 1:
+                            result = ConvertSingleDigitToString(input);
+                            isCompleted = true;
+                            break;
+                        case 2:
+                            result = ConvertDoubleDigitToString(input);
+                            isCompleted = true;
+                            break;
+                        case 3:
+                            index = (numberLength % 3) + 1;
+                            head = " Hundred ";
+                            break;
+                        case 4:
+                        case 5:
+                        case 6:
+                            index = (numberLength % 4) + 1;
+                            head = " Thousand ";
+                            break;
+                        case 7://millions' range    
+                        case 8:
+                        case 9:
+                            index = (numberLength % 7) + 1;
+                            head = " Million ";
+                            break;
+                        case 10://Billions's range    
+                        case 11:
+                        case 12:
+
+                            index = (numberLength % 10) + 1;
+                            head = " Billion ";
+                            break;
+                        case 13://Trillion's range    
+                        case 14:
+                        case 15:
+
+                            index = (numberLength % 13) + 1;
+                            head = " Trillion ";
+                            break;
+                        //add extra case options for anything above Trillion...    
+                        default:
+                            isCompleted = true;
+                            break;
                     }
-                    else
+                    if (!isCompleted)
                     {
-                        result = ConvertNumberToString(input.Substring(0, index)) + ConvertNumberToString(input.Substring(index));
+                        if (input.Substring(0, index) != "0" && input.Substring(index) != "0")
+                        {
+                            try
+                            {
+                                result = ConvertNumberToString(input.Substring(0, index)) + head + ConvertNumberToString(input.Substring(index));
+                            }
+                            catch { }
+                        }
+                        else
+                        {
+                            result = ConvertNumberToString(input.Substring(0, index)) + ConvertNumberToString(input.Substring(index));
+                        }
                     }
                 }
             }
@@ -136,4 +166,3 @@ namespace WholeNumberToStringConverter
 
     }
 }
-    

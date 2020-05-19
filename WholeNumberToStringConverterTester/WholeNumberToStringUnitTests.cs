@@ -99,7 +99,7 @@ namespace WholeNumberToStringConverterTester
         {
             int i = 0;
             string[] teens = { "100812" };
-            string[] expectedResult = { "One Thousand Twelve" };
+            string[] expectedResult = { "One Hundred Thousand Eight Hundred Twelve" };
             foreach (string n in teens)
             {
                 string s = NumberToStringConverter.ConvertNumberToReadableString(n);
